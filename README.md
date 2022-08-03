@@ -17,5 +17,6 @@ Post with query `user` and `code` to validate a code for the user specified.
 
 ## TODO
 - [x] Lay out the backend
-- [ ] Frontend
+- [ ] Use a password to validate identity
 - [ ] Wiping every minute
+- [ ] Frontend
