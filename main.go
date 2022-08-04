@@ -7,6 +7,7 @@ import (
 	"log"
 	"math/big"
 	"net/http"
+	"time"
 )
 
 var db = make(map[string][2]string)
@@ -25,6 +26,22 @@ func Generate() string {
 
 func main() {
 	http.HandleFunc("/", Handler)
+
+	ticker := time.NewTicker(time.Minute)
+	quit := make(chan struct{})
+	go func() {
+		for {
+			select {
+			case <-ticker.C:
+				db = make(map[string][2]string)
+				log.Printf("Current database was wiped!")
+			case <-quit:
+				ticker.Stop()
+				return
+			}
+		}
+	}()
+
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 

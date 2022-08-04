@@ -1,7 +1,7 @@
 # my-2fa
 [![Go Report Card](https://goreportcard.com/badge/github.com/noxtal/my-2fa)](https://goreportcard.com/report/github.com/noxtal/my-2fa)
 
-A simple 2FA Backend API entirely in Go as a way to learn the language. Cryptographically secure using `crypto/rand` according to a [gosec](https://github.com/securego/gosec) scan. Manages a database internally to handle multiple users and codes. The system achieves ambiguity using only a single HTTP status code if ever either of the password or code is incorrect.
+A simple 2FA Backend API entirely in Go as a way to learn the language. Cryptographically secure using `crypto/rand` according to a [gosec](https://github.com/securego/gosec) scan. Manages a database internally to handle multiple users and codes. The system achieves ambiguity using only a single HTTP status code if ever either of the password or code is incorrect. To enhance security, the database wipes every minute. This project still **should not be used in production** as it is only a quick learning project.
 
 ## Usage
 ### GET
@@ -20,5 +20,5 @@ Post with query `user`, `password` and `code` to validate a code for the user sp
 ## TODO
 - [x] Lay out the backend
 - [x] Use a password to validate identity
-- [ ] Wiping every minute
+- [x] Wiping every minute
 - [ ] Frontend
